@@ -1,0 +1,261 @@
+@font-face {
+  font-family: 'Anton';
+  src: url('./fonts/Anton-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Pacifico';
+  src: url('./fonts/Pacifico-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-display: swap;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  min-height: 100%;
+  background: #12081f;
+  color: #f4eef8;
+  font: 15px/1.45 system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 22px;
+  background: linear-gradient(90deg, #2b0a4a 0%, #7a1048 55%, #c22a5e 100%);
+  border-bottom: 3px solid #ffb347;
+}
+.brand { display: flex; align-items: center; gap: 14px; }
+.brand-mark {
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 10px;
+  background: #ffb347;
+  color: #2b0a4a;
+  font-family: 'Anton', sans-serif;
+  font-size: 26px;
+  letter-spacing: 1px;
+  transform: rotate(-4deg);
+  box-shadow: 0 4px 0 #7a1048;
+}
+.brand h1 {
+  margin: 0;
+  font-family: 'Anton', sans-serif;
+  font-size: 30px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #fff;
+  text-shadow: 0 3px 0 rgba(0, 0, 0, .35);
+}
+.brand p { margin: 2px 0 0; color: #ffd9ec; font-size: 13px; }
+.top-actions { display: flex; gap: 8px; }
+
+.studio {
+  display: grid;
+  grid-template-columns: 380px minmax(0, 1fr);
+  gap: 18px;
+  align-items: start;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 18px;
+}
+.panel {
+  background: #1d0f2e;
+  border: 1px solid #3d2358;
+  border-radius: 14px;
+  padding: 18px;
+}
+.controls h2 {
+  margin: 20px 0 8px;
+  font-family: 'Anton', sans-serif;
+  font-size: 15px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #ffb347;
+}
+.controls h2:first-child { margin-top: 0; }
+
+button {
+  font: inherit;
+  font-weight: 700;
+  padding: 9px 13px;
+  border: 0;
+  border-radius: 8px;
+  background: #3d2358;
+  color: #fff;
+  cursor: pointer;
+}
+button:hover { background: #523377; }
+button:focus-visible, .file-btn:focus-visible, .chip:focus-visible {
+  outline: 3px solid #ffb347;
+  outline-offset: 2px;
+}
+button.primary {
+  width: 100%;
+  margin-top: 10px;
+  padding: 13px;
+  background: linear-gradient(90deg, #ff6a3d, #ff2e88);
+  font-size: 16px;
+  letter-spacing: .5px;
+}
+button.primary:hover { filter: brightness(1.12); }
+button:disabled { opacity: .45; cursor: default; }
+
+.file-btn {
+  display: inline-block;
+  padding: 9px 13px;
+  border-radius: 8px;
+  background: #ff2e88;
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+}
+.file-btn input { display: none; }
+.photo-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+
+.tray {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  min-height: 74px;
+  margin-top: 10px;
+  padding: 8px;
+  border: 1px dashed #5b3a86;
+  border-radius: 10px;
+  background: #170a26;
+}
+.tray .empty { color: #a78fc4; font-size: 13px; margin: auto; }
+.tray img {
+  width: 66px;
+  height: 66px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 3px solid transparent;
+  cursor: pointer;
+}
+.tray img.picked { border-color: #ffb347; }
+.tray img:hover { border-color: #ff2e88; }
+
+.hint { margin: 8px 0 0; color: #b9a3d4; font-size: 13px; }
+#status { margin: 10px 0 0; color: #7dffc4; font-weight: 600; min-height: 1.2em; }
+
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip {
+  padding: 7px 10px;
+  border-radius: 999px;
+  background: #2c1846;
+  border: 2px solid #4a2d72;
+  color: #e9ddf7;
+  font-size: 13px;
+  font-weight: 600;
+}
+.chip.active {
+  border-color: #ffb347;
+  background: #ff2e88;
+  color: #fff;
+}
+.chip .swatch {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-right: 6px;
+  vertical-align: -1px;
+}
+
+.field { display: flex; flex-direction: column; gap: 5px; font-weight: 600; font-size: 13px; }
+.field input[type=text], .field select {
+  font: inherit;
+  padding: 8px 10px;
+  border: 1px solid #5b3a86;
+  border-radius: 8px;
+  background: #170a26;
+  color: #fff;
+}
+.field input[type=color] {
+  width: 100%;
+  height: 38px;
+  padding: 2px;
+  border: 1px solid #5b3a86;
+  border-radius: 8px;
+  background: #170a26;
+}
+.row { display: flex; gap: 10px; align-items: end; margin-top: 8px; }
+.row .grow { flex: 1; }
+.toggles { display: flex; flex-wrap: wrap; gap: 6px 16px; margin-top: 10px; }
+.toggles label { display: flex; gap: 6px; align-items: center; font-size: 14px; cursor: pointer; }
+input[type=range] { width: 100%; accent-color: #ff2e88; }
+
+.sizes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.size-btn {
+  padding: 10px 6px;
+  background: #2c1846;
+  border: 2px solid #4a2d72;
+  font-size: 13px;
+  line-height: 1.5;
+}
+.size-btn.active { border-color: #ffb347; background: #ff2e88; }
+
+.stage-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+.stage-head h2 {
+  margin: 0;
+  font-family: 'Anton', sans-serif;
+  font-size: 18px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #ffb347;
+}
+#sizeLabel { color: #b9a3d4; font-weight: 700; }
+.canvas-wrap {
+  position: relative;
+  margin-top: 12px;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #0a0514;
+  box-shadow: 0 10px 34px rgba(0, 0, 0, .55);
+}
+#cover { display: block; width: 100%; height: auto; cursor: crosshair; }
+.panel-overlay { position: absolute; inset: 0; pointer-events: none; }
+.panel-overlay .hot {
+  position: absolute;
+  border: 3px dashed rgba(255, 179, 71, .95);
+  box-shadow: inset 0 0 0 2px rgba(0, 0, 0, .25);
+}
+.panel-overlay .hot::after {
+  content: 'SELECTED';
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: #ffb347;
+  color: #2b0a4a;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.foot { max-width: 1280px; margin: 0 auto; padding: 0 18px 22px; color: #8d76ad; font-size: 13px; }
+
+/* Screenshot scenes: hide the editor, show only the cover full-bleed. */
+body.shot-cover .topbar, body.shot-cover .controls, body.shot-cover .foot { display: none; }
+body.shot-cover .studio { display: block; max-width: none; padding: 0; }
+body.shot-cover .stage { padding: 0; border: 0; border-radius: 0; background: transparent; }
+body.shot-cover .stage-head, body.shot-cover .stage .hint { display: none; }
+body.shot-cover .canvas-wrap { margin: 0; border-radius: 0; box-shadow: none; }
+
+@media (max-width: 900px) {
+  .studio { grid-template-columns: 1fr; }
+  .brand h1 { font-size: 22px; }
+}
